@@ -48,3 +48,8 @@ processo do jogo:
       -- exibir modal dizendo 'que pena'.
 
 */
+
+// solução para data
+// base de dados propria
+// api externa
+// json com palavras
