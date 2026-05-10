@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Termo from "./components/Termo";
 
 function App() {
   const [solution, setSolution] = useState(null)
@@ -15,7 +16,7 @@ function App() {
   return (
     <div className="App">
       <h1>Subumba "Termo"</h1>
-      {solution && <div>Solução: {solution?.word}</div>}
+      {solution && <Termo solution={solution}/>}
     </div>
   );
 }

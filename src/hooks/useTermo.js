@@ -18,8 +18,20 @@ const useTermo = (solution) => {
   }
 
   // lidar com eventos de teclado
-  const handleKeyup = () => {
+  const handleKeyup = ({ key }) => {
+    if (key === 'Backspace') {
+      setCurrentGuess((prev) => {
+        return prev.slice(0, -1)
+      })
+    }
 
+    if (/^[A-Za-z]$/.test(key)) {
+      if (currentGuess.length < 5) {
+        setCurrentGuess((prev) => {
+          return prev + key.toLowerCase()
+        })
+      }
+    }
   }
 
   return { turn, currentGuess, guesses, isCorrect, handleKeyup }
