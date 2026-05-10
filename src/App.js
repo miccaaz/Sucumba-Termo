@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Subumba "Termo"</h1>
+      <h1>Sucumba "Termo"</h1>
       {solution && <Termo solution={solution}/>}
     </div>
   );
