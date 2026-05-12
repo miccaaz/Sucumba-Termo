@@ -3,12 +3,11 @@ import { useState } from 'react';
 const useTermo = (solution) => {
   const [turn, setTurn] = useState(0)
   const [currentGuess, setCurrentGuess] = useState('')
-  const [guesses, setGuesses] = useState([]) // cada item é um array de letras
+  const [guesses, setGuesses] = useState([...Array(6)]) // cada item é um array de letras
   const [history, setHistory] = useState([]) // cada item é uma string
   const [isCorrect, setIsCorrect] = useState(false)
 
   // mostrar o status de cada letra do palpite (verde, amarelo, cinza)
-  // e.g. [{key: 'a', color: 'yellow'}]
   const formatGuess = () => {
     let solutionArray = [...solution.word]
     let formattedGuess = [...currentGuess].map((l) => {
@@ -35,8 +34,26 @@ const useTermo = (solution) => {
   }
 
   // adicionar um novo palpite
-  const addNewGuess = () => {
+  const addNewGuess = (formattedGuess) => {
+    if (currentGuess === solution.word ){
+      setIsCorrect(true)
+    }
 
+    setGuesses((prevGuesses) => {
+      let newGuesses = [...prevGuesses]
+      newGuesses[turn] = formattedGuess
+      return newGuesses
+    })
+
+    setHistory((prevHistory) => {
+      return [...prevHistory, currentGuess]
+    })
+
+    setTurn((prevTurn) => {
+      return prevTurn + 1
+    })
+
+    setCurrentGuess('')
   }
 
   // lidar com eventos de teclado
@@ -61,7 +78,7 @@ const useTermo = (solution) => {
       }
 
       const formatted = formatGuess()
-      console.log(formatted);
+      addNewGuess(formatted)
     }
 
     if (key === 'Backspace') {
