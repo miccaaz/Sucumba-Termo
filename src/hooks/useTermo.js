@@ -8,8 +8,30 @@ const useTermo = (solution) => {
   const [isCorrect, setIsCorrect] = useState(false)
 
   // mostrar o status de cada letra do palpite (verde, amarelo, cinza)
+  // e.g. [{key: 'a', color: 'yellow'}]
   const formatGuess = () => {
-    console.log("formatando palpite - ", currentGuess)
+    let solutionArray = [...solution.word]
+    let formattedGuess = [...currentGuess].map((l) => {
+      return { key: l, color: 'grey' }
+    })
+
+    // achar letras verdes
+    formattedGuess.forEach((l, i) => {
+      if (solutionArray[i] === l.key) {
+        formattedGuess[i].color = 'green'
+        solutionArray[i] = null
+      }
+    })
+
+    // achar letras amarelas
+    formattedGuess.forEach((l, i) => {
+      if (solutionArray.includes(l.key) && l.color !== 'green') {
+        formattedGuess[i].color = 'yellow'
+        solutionArray[solutionArray.indexOf(l.key)] = null
+      }
+    })
+
+    return formattedGuess
   }
 
   // adicionar um novo palpite
@@ -38,7 +60,8 @@ const useTermo = (solution) => {
         return
       }
 
-      formatGuess(currentGuess)
+      const formatted = formatGuess()
+      console.log(formatted);
     }
 
     if (key === 'Backspace') {

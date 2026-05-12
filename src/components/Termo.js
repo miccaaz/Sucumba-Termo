@@ -11,7 +11,10 @@ const Termo = ({ solution }) => {
   }, [handleKeyup])
 
   return (
-    <div>Tentativa Atual: {currentGuess}</div>
+    <div>
+      <div>Palavra: {solution.word}</div>
+      <div>Tentativa Atual: {currentGuess}</div>
+    </div>
   )
 }
 
