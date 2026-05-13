@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import useTermo from '../hooks/useTermo'
-import { logDOM } from '@testing-library/react'
+import Grid from './Grid'
 
 const Termo = ({ solution }) => {
   const { currentGuess, handleKeyup, guesses, isCorrect, turn } = useTermo(solution)
@@ -19,6 +19,7 @@ const Termo = ({ solution }) => {
     <div>
       <div>Palavra: {solution.word}</div>
       <div>Tentativa Atual: {currentGuess}</div>
+      <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
     </div>
   )
 }
