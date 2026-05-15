@@ -4,7 +4,7 @@ import Grid from './Grid'
 import Keypad from './Keypad'
 
 const Termo = ({ solution }) => {
-  const { currentGuess, handleKeyup, guesses, isCorrect, turn } = useTermo(solution)
+  const { currentGuess, handleKeyup, guesses, isCorrect, turn, usedKeys } = useTermo(solution)
 
   useEffect(() => {
     window.addEventListener('keyup', handleKeyup)
@@ -20,7 +20,7 @@ const Termo = ({ solution }) => {
     <div>
       <div>Palavra: {solution.word}</div>
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
-      <Keypad />
+      <Keypad usedKeys={usedKeys}/>
     </div>
   )
 }
