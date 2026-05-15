@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import useTermo from '../hooks/useTermo'
 import Grid from './Grid'
+import Keypad from './Keypad'
 
 const Termo = ({ solution }) => {
   const { currentGuess, handleKeyup, guesses, isCorrect, turn } = useTermo(solution)
@@ -18,8 +19,8 @@ const Termo = ({ solution }) => {
   return (
     <div>
       <div>Palavra: {solution.word}</div>
-      <div>Tentativa Atual: {currentGuess}</div>
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
+      <Keypad />
     </div>
   )
 }
