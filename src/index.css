@@ -1,15 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+:root {
+  --color-green: #0cb585;
+  --color-yellow: #ccb23b;
+  --color-grey: #2d2d2d;
+}
+
 body {
   text-align: center;
   font-size: 1em;
-  font-family: verdana;
+  font-family: "Luckiest Guy", cursive;
   margin: 0;
+  background: #5C4F4A;
+  color: #eee;
 }
+
 h1 {
-  font-size: 1.2em;
-  padding: 20px 0;
-  border-bottom: 1px solid #eee;
+  font-size: 2em;
+  font-weight: 100;
+  padding: 12px 0;
   margin: 0 0 30px 0;
-  color: #333;
+  color: #eee;
 }
 
 /* rows */
@@ -22,32 +33,32 @@ h1 {
 
 .row > div {
   display: block;
-  width: 60px;
-  height: 60px;
-  border: 2px solid #bbb;
-  margin: 4px;
+  width: 52px;
+  height: 52px;
+  border: 5px solid #372f2c;
+  border-radius: 8px;
+  margin: 2px;
   text-align: center;
-  line-height: 60px;
+  line-height: 52px;
   text-transform: uppercase;
-  font-weight: bold;
   font-size: 2.5em;
 }
 
 .row > div.green {
-  --background: #5ac85a;
-  --border-color: #5ac85a;
+  --background: var(--color-green);
+  --border-color: var(--color-green);
   animation: flip 0.5s ease forwards;
 }
 
 .row > div.yellow {
-  --background: #e2cc68;
-  --border-color: #e2cc68;
+  --background: var(--color-yellow);
+  --border-color: var(--color-yellow);
   animation: flip 0.5s ease forwards;
 }
 
 .row > div.grey {
-  --background: #8d8d8d;
-  --border-color: #8d8d8d;
+  --background: var(--color-grey);
+  --border-color: var(--color-grey);
   animation: flip 0.5s ease forwards;
 }
 
@@ -72,58 +83,62 @@ h1 {
 }
 
 .keypad {
-  max-width: 500px;
+  max-width: 650px;
   margin: 20px auto;
 }
 
 .keypad > div {
-  margin: 5px;
-  width: 40px;
-  height: 50px;
-  background: #eee;
+  margin: 2.5px;
+  width: 60px;
+  height: 55px;
+  background: #3b3532;
+  color: #fff;
   display: inline-block;
   border-radius: 6px;
-  line-height: 50px;
+  line-height: 55px;
+  font-size: 30px;
+  font-weight: 500;
 }
 
 .keypad > div.green {
-  background: #5ac85a;
+  background: var(--color-green);
   color: #fff;
   transition: all 0.3s ease-in;
 }
 
 .keypad > div.yellow {
-  background: #e2cc68;
+  background: var(--color-yellow);
   color: #fff;
   transition: all 0.3s ease-in;
 }
 
 .keypad > div.grey {
-  background: #8d8d8d;
+  background: var(--color-grey);
   color: #fff;
   transition: all 0.3s ease-in;
+  opacity: 30%;
 }
 
 /* animações */
 @keyframes flip {
   0% {
-    transform: rotateX(0);
-    background: #fff;
+    transform: rotateY(0);
+    background: #5C4F4A;
     border-color: #333;
   }
   45% {
-    transform: rotateX(90deg);
-    background: #fff;
+    transform: rotateY(-90deg);
+    background: #5C4F4A;
     border-color: #333;
   }
   55% {
-    transform: rotateX(90deg);
+    transform: rotateY(-90deg);
     background: var(--background);
     border-color: var(--border-color);
     color: #eee;
   }
   100% {
-    transform: rotateX(0);
+    transform: rotateY(0);
     background: var(--background);
     border-color: var(--border-color);
     color: #eee;
@@ -133,13 +148,11 @@ h1 {
 @keyframes bounce {
   0% {
     transform: scale(1);
-    border-color: #ddd;
   }
   50% {
     transform: scale(1.2);
   }
   100% {
     transform: scale(1);
-    border-color: #333;
   }
 }

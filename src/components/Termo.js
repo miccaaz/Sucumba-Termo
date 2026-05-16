@@ -18,7 +18,6 @@ const Termo = ({ solution }) => {
 
   return (
     <div>
-      <div>Palavra: {solution.word}</div>
       <Grid currentGuess={currentGuess} guesses={guesses} turn={turn} />
       <Keypad usedKeys={usedKeys}/>
     </div>

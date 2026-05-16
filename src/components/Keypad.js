@@ -15,8 +15,9 @@ const Keypad = ({ usedKeys }) => {
     <div className='keypad'>
       {letters && letters.map((l) => {
         const color = usedKeys[l.key]
+        const letter = l.key
         return (
-          <div key={l.key} className={color}>{l.key}</div>          
+          <div key={l.key} className={color}>{letter.toUpperCase()}</div>
         )
       })}
     </div>
